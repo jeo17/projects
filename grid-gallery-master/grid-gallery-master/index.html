@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <title>Grid Gallery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="css/grid-gallery.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Text|Lexend+Deca&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="logo">jestov</a>
+      <div class="group-menu">
+        <ul class="menu menu-large">
+          <a href="/about/" class="nav-item ">about</a><a href="/works/" class="nav-item ">works</a><a href="/blog/" class="nav-item ">blog</a>
+          <ul class="menu">
+            <a href="https://github.com/jestov" class="icon"><i class="icon ion-logo-github"></i></a><a href="" class="icon"><i class="icon ion-logo-instagram"></i></a>
+          </ul>
+        </ul>
+        <ul class="menu">
+          <a id="dark" class="btn" title="Dark Mode"><i class="icon icon-left ion-md-moon"></i> Dark</a><a id="light" class="btn" title="Light Mode"><i class="icon icon-left ion-md-sunny"></i> Light</a>
+        </ul>
+        <details>
+          <summary>
+            <div class="closed"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><div class="open"><span class="bar"></span><span class="bar"></span></div>
+          </summary>
+          <ul class="menu menu-responsive">
+            <a href="/about/">about</a><a href="/works/">works</a><a href="/blog/">blog</a>
+            <ul class="menu">
+              <a href="https://github.com/jestov" class="icon"><i class="icon ion-logo-github"></i></a><a href="" class="icon"><i class="icon ion-logo-instagram"></i></a>
+            </ul>
+          </ul>
+        </details>
+      </div>
+    </nav>
+
+    <div class="content">
+      <h1>Grid Gallery<p>A simple and light Grid Gallery with pure JS</p><a href="https://github.com/jestov/grid-gallery" class="btn btn-inline">Fork on <i class="icon icon-left ion-logo-github"></i> GitHub<i class="icon ion-md-arrow-forward"></i></a><a href="https://github.com/jestov/grid-gallery/blob/master/README.md" class="btn btn-inline">Docs<i class="icon ion-md-arrow-forward"></i></a><a href="https://github.com/jestov/grid-gallery/archive/master.zip" class="btn btn-inline">Download<i class="icon ion-md-arrow-down"></i></a></h1>
+      <div class="gg-container">
+        <h3>Default</h3>
+        <div class="gg-box">
+          <img src="img/1.jpg">
+          <img src="img/2.jpg">
+          <img src="img/3.jpg">
+          <img src="img/4.jpg">
+          <img src="img/5.jpg">
+          <img src="img/6.jpg">
+          <img src="img/7.jpg">
+          <img src="img/8.jpg">
+          <img src="img/9.jpg">
+          <img src="img/10.jpg">
+          <img src="img/11.jpg">
+          <img src="img/12.jpg">
+          <img src="img/13.jpg">
+          <img src="img/14.jpg">
+        </div>
+        <h3>Dark Mode</h3>
+        <div class="gg-box dark">
+          <img src="img/13.jpg">
+          <img src="img/14.jpg">
+          <img src="img/15.jpg">
+          <img src="img/16.jpg">
+          <img src="img/17.jpg">
+          <img src="img/18.jpg">
+        </div>
+        <h3>Horizontal Layout</h3>
+        <div class="gg-box dark" id="horizontal">
+          <img src="img/1.jpg">
+          <img src="img/2.jpg">
+          <img src="img/3.jpg">
+          <img src="img/4.jpg">
+          <img src="img/5.jpg">
+          <img src="img/6.jpg">
+        </div>
+        <h3>Square Layout</h3>
+        <div class="gg-box dark" id="square">
+          <img src="img/11.jpg">
+          <img src="img/12.jpg">
+          <img src="img/13.jpg">
+          <img src="img/14.jpg">
+          <img src="img/15.jpg">
+          <img src="img/16.jpg">
+          <img src="img/17.jpg">
+          <img src="img/18.jpg">
+        </div>
+        <h3>Customized Gap</h3>
+        <p>Gap between images with value of 10px</p>
+        <div class="gg-box" id="gap">
+          <img src="img/6.jpg">
+          <img src="img/7.jpg">
+          <img src="img/8.jpg">
+          <img src="img/9.jpg">
+          <img src="img/10.jpg">
+          <img src="img/11.jpg">
+        </div>
+        <h3>Row Height and Column Width</h3>
+        <p>Row height with value of 180px and column width with value of 280px</p>
+        <div class="gg-box dark" id="heightWidth">
+          <img src="img/13.jpg">
+          <img src="img/14.jpg">
+          <img src="img/15.jpg">
+          <img src="img/16.jpg">
+          <img src="img/17.jpg">
+          <img src="img/18.jpg">
+        </div>
+      </div>
+      <a href="https://github.com/jestov/grid-gallery" class="btn btn-inline">Fork on <i class="icon icon-left ion-logo-github"></i> GitHub<i class="icon ion-md-arrow-forward"></i></a><a href="https://github.com/jestov/grid-gallery/blob/master/README.md" class="btn btn-inline">Docs<i class="icon ion-md-arrow-forward"></i></a><a href="https://github.com/jestov/grid-gallery/archive/master.zip" class="btn btn-inline">Download<i class="icon ion-md-arrow-down"></i></a>
+      <footer>Made with <i class="icon ion-md-heart"></i> by <a class="logo mini" href="https://github.com/jestov">jestov</a> from Mexico</footer>
+    </div>
+    <script src="js/grid-gallery.min.js"></script>
+    <script>
+    gridGallery({
+      selector: ".dark",
+      darkMode: true
+    });
+    gridGallery({
+      selector: "#horizontal",
+      layout: "horizontal"
+    });
+    gridGallery({
+      selector: "#square",
+      layout: "square"
+    });
+    gridGallery({
+      selector: "#gap",
+      gaplength: 10
+    });
+    gridGallery({
+      selector: "#heightWidth",
+      rowHeight: 180,
+      columnWidth: 280
+    });
+    </script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
