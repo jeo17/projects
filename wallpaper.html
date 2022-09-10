@@ -33,11 +33,10 @@
         background-color: white;
         margin: 0px;
         padding: 0px;
-        box-sizing: border-box;
         height: 1820px;
         width: 100% !important;
         background-color: #ececec;
-        box-sizing: border-box;
+       
         
        
 }
@@ -216,7 +215,6 @@ bottom: 20px;
 .btn-19 {
   --width: 250px;
   width: var(--width);
-
   display: inline-block;
   box-sizing: border-box;
   padding: 20px 45px;
@@ -459,10 +457,10 @@ bottom: 20px;
 .main-search-input {
     background: #fff;
     padding: 0 120px 0 0;
-    border-radius: 1px;
     margin-top: 200px;
     box-shadow: 0px 0px 0px 6px rgba(255,255,255,0.3);
     border-radius: 30px;
+    left: 15%;
   
 }
 
@@ -489,7 +487,6 @@ bottom: 20px;
 .main-search-input-item {
     float: left;
     width: 100%;
-    box-sizing: border-box;
     border-right: 1px solid #eee;
     height: 50px;
     position: relative;
@@ -611,8 +608,8 @@ bottom: 20px;
   display: grid;
   place-items: center;  
   text-align: center;
-  height: 100vh
-
+  height: 100vh;
+ 
 }
 
 .title {
@@ -621,7 +618,7 @@ bottom: 20px;
   font-size: 53px;
   text-transform: uppercase;
    transform: translate(0px,27px);
-  
+   
 }
 
 @media (max-width: 850px){
@@ -636,9 +633,7 @@ bottom: 20px;
     align-items: center;
   }
 
- .title{
-  font-size: 30px;
- }
+
  .btn-19{
   
   
@@ -889,7 +884,7 @@ dialog::backdrop{
 button:hover{
  cursor: pointer;
 }
-
+/*small logo*/
 .logo{
   width: 147px;
   transform: translate(-300px,-20px);
@@ -927,9 +922,16 @@ button:hover{
 
 .js{
   font-size: larger;
-
 }
-
+.error {
+            border-bottom: 2px solid #d25256;
+            outline-style: none;
+            
+        }
+.success {
+            border-bottom: 2px solid #33c463;
+            outline-style: none;
+        }
 
 </style>
 
@@ -1024,8 +1026,8 @@ button:hover{
               <form method="post" onsubmit="return false;">
                 <div class="form-group">
                   <input class="input" type="text" placeholder="Username" />
-                  <input class="input" type="text" placeholder="Mobile Number or Email" />
-                  <input class="input" type="text" placeholder="Password" />
+                  <input id="email" class="input" type="text" placeholder="Email address" />
+                  <input id="pass1" class="input" type="text" placeholder="Password" />
                   
                  <div class="dis">
                   <div >
@@ -1077,7 +1079,7 @@ button:hover{
               <form method="post" onsubmit="return false;" style="position: relative;bottom:8px">
                 <div class="form-group">
                   <input class="input" type="text" placeholder="Username" />
-                  <input class="input" type="text" placeholder="Password" />
+                  <input id="pass2" class="input" type="text" placeholder="Password" />
                 </div>
                 
                 <button class="button" id="login" type="submit">Login</button>

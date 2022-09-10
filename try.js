@@ -46,7 +46,7 @@ const topLayer = document.getElementById("topLayer");
 
 
 
-
+// sign & login
 login.addEventListener("click", (eo) => {
   box.showModal();
   slideBox.style.marginLeft = "50%";
@@ -70,7 +70,7 @@ close1.addEventListener("click", (eo) => {
 
 
 
-
+//add image
 const add = document.getElementById("add");
 const cont = document.querySelector(".gg-box");
 const newE = `<img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (12).jpg" class="js">`;
@@ -80,6 +80,49 @@ const newE = `<img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wal
   
   })
 
+//
 
+const mail = document.getElementById("email");
+const pass1 = document.getElementById("pass1");
+const pass2 = document.getElementById("pass2");
 
+const regEmail  =
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  const regPassword =
+  /^(?=.*[0-9])(?=.{8,})(?=.*[a-z])/;
+
+  mail.addEventListener("keyup", (eo) => {
+    if (regEmail.test(mail.value)) {
+      mail.classList.remove("error");
+      mail.classList.add("success");
+    } else {
+      mail.classList.remove("success");
+      mail.classList.add("error");
+  
+    }
+  });
+  
+  
+  pass1.addEventListener("keyup", (eo) => {
+    if (regPassword.test(pass1.value)) {
+      pass1.classList.remove("error");
+      pass1.classList.add("success");
+    } else {
+      pass1.classList.remove("success");
+      pass1.classList.add("error");
+  
+    }
+  });
+
+  pass2.addEventListener("keyup", (eo) => {
+    if (regPassword.test(pass2.value)) {
+      pass2.classList.remove("error");
+      pass2.classList.add("success");
+    } else {
+      pass2.classList.remove("success");
+      pass2.classList.add("error");
+  
+    }
+  });
 
