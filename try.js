@@ -73,14 +73,17 @@ close1.addEventListener("click", (eo) => {
 //add image
 const add = document.getElementById("add");
 const cont = document.querySelector(".gg-box");
-const newE = `<img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (12).jpg" class="js">`;
+
+
 
   add.addEventListener("click",(eo) => {
+    let iii = document.querySelectorAll(".js").length;
+    let newE = `<img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (12).jpg" class="js" id="${iii}">`;
     cont.innerHTML += newE;
   
   })
 
-//
+// reguler expration
 
 const mail = document.getElementById("email");
 const pass1 = document.getElementById("pass1");

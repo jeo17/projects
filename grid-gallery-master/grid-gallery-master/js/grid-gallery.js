@@ -1,27 +1,7 @@
 const root = document.querySelector("body, html");
 const container = document.querySelector('.gg-container');
-const images = document.querySelectorAll(".gg-box > img");
-const conta = document.querySelector(".gg-box")
-const l = images.length;
+const conta = document.querySelector(".gg-box");
 
-
-/*
-
-          container.addEventListener("click",(eo) => {
-        if (eo.target.className ==("js")) {
-          images.forEach(item => {
-            item.addEventListener("click",(eo) => {
-              const mysrc = item.getAttribute('src');
-              
-              
-
-
-
-      for(var i = 0; i < l; i++) {
-        images[i].addEventListener("click", function() {
-       
-    
-  */
    
       
     
@@ -30,34 +10,36 @@ const l = images.length;
 
      conta.addEventListener("click",function(eo) {
      if (eo.target.className =="js") {
-        
-      console.log("okeyyyyyy");
+
+     
       var currentImg = this;
-      const parentItem = currentImg, screenItem = document.createElement('div');
+      const parentItem = currentImg.parentElement, screenItem = document.createElement('div');
       screenItem.id = "gg-screen";
       container.prepend(screenItem);
       if (parentItem.hasAttribute('data-theme')) screenItem.setAttribute("data-theme", "dark");
-      var route = eo.target.src;
+      var route = eo.target;
       root.style.overflow = 'hidden';
       screenItem.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div>';
-      const first = images[0].src, last = images[l-1].src;
+      const images = document.querySelectorAll(".gg-box > img");
+      const l = images.length;
+      const first = images[0].id, last = images[l-1].id;
       const imgItem = document.querySelector(".gg-image"), prevBtn = document.querySelector(".gg-prev"), nextBtn = document.querySelector(".gg-next"), close = document.querySelector(".gg-close");
-      imgItem.innerHTML = '<img src="' + route + '">';
-  
+      imgItem.innerHTML = '<img src="' + route.src + '"id="' + eo.target.id + '"> ';
+     
+     
+      
+        
       if (l > 1) {
-        if (route == first) {
+       
+        if (route.id == first) {
           prevBtn.hidden = true;
           var prevImg = false;
-          var nextImg = currentImg.nextElementSibling;
+        
         }
-        else if (route == last) {
+        else if (route.id == last) {
           nextBtn.hidden = true;
           var nextImg = false;
-          var prevImg = currentImg.previousElementSibling;
-        }
-        else {
-          var prevImg = currentImg.previousElementSibling;
-          var nextImg = currentImg.nextElementSibling;
+          
         }
       }
       else {
@@ -79,19 +61,25 @@ const l = images.length;
       nextBtn.addEventListener("click", next);
   
       function prev() {
-        prevImg = currentImg.previousElementSibling;
-        imgItem.innerHTML = '<img src="' + prevImg.src + '">';
-        currentImg = currentImg.previousElementSibling;
-        var mainImg = document.querySelector(".gg-image > img").src;
-        nextBtn.hidden = false;
-        prevBtn.hidden = mainImg === first;
+        let j = document.querySelector(".gg-image > img").id;
+       
+          prevImg = document.getElementById(j-1);
+         imgItem.innerHTML = '<img src="' + prevImg.src + '" id="' + prevImg.id + '">';
+         currentImg = document.getElementById(j-1);
+         var mainImg = document.querySelector(".gg-image > img").id;
+         nextBtn.hidden = false;
+         prevBtn.hidden = mainImg === first;
+         
+        
       };
   
       function next() {
-        nextImg = currentImg.nextElementSibling;
-        imgItem.innerHTML = '<img src="' + nextImg.src + '">';
-        currentImg = currentImg.nextElementSibling;
-        var mainImg = document.querySelector(".gg-image > img").src;
+        let j = document.querySelector(".gg-image > img").id;
+        
+        nextImg = document.getElementById(Number(j)+1);
+        imgItem.innerHTML = '<img src="' + nextImg.src + '" id="' + nextImg.id + '">';
+        currentImg = document.getElementById(Number(j)+1);
+        var mainImg = document.querySelector(".gg-image > img").id;
         prevBtn.hidden = false;
         nextBtn.hidden = mainImg === last;
       };
@@ -99,13 +87,13 @@ const l = images.length;
       function hide() {
         root.style.overflow = 'auto';
         screenItem.remove();
+        
+
       };
-    
-
-  }
- })
-
-;
+     
+      
+    }
+  });
 
    
    
