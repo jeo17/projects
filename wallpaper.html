@@ -1025,21 +1025,21 @@ button:hover{
               <p style="color: #6c757d;transform: translate(0,10px);"> or creat new account here:</p>
               <form method="post" onsubmit="return false;">
                 <div class="form-group">
-                  <input class="input" type="text" placeholder="Username" />
-                  <input id="email" class="input" type="text" placeholder="Email address" />
-                  <input id="pass1" class="input" type="text" placeholder="Password" />
+                  <input class="input" type="text" placeholder="Username" required />
+                  <input id="email" class="input" type="text" placeholder="Email address" required />
+                  <input id="pass1" class="input" type="text" placeholder="Password" required />
                   
                  <div class="dis">
                   <div >
-                    <input class="input" type="text"  maxlength="2" size="2" placeholder="DD"/>
+                    <input class="input" type="text"  maxlength="2" size="2" placeholder="DD" required />
                   </div>
       
                   <div >
-                    <input class="input" type="text"  maxlength="2" size="2" placeholder="MM" />
+                    <input class="input" type="text"  maxlength="2" size="2" placeholder="MM" required />
                   </div>
       
                   <div >
-                    <input class="input" type="text"  maxlength="4" size="4" placeholder="YYYY"/>
+                    <input class="input" type="text"  maxlength="4" size="4" placeholder="YYYY" required />
                   </div>
                  </div>
                   
@@ -1078,8 +1078,8 @@ button:hover{
              </div>
               <form method="post" onsubmit="return false;" style="position: relative;bottom:8px">
                 <div class="form-group">
-                  <input class="input" type="text" placeholder="Username" />
-                  <input id="pass2" class="input" type="text" placeholder="Password" />
+                  <input class="input" type="text" placeholder="Username" required />
+                  <input id="pass2" class="input" type="text" placeholder="Password" required />
                 </div>
                 
                 <button class="button" id="login" type="submit">Login</button>
