@@ -19,6 +19,16 @@ app.get('/', (req, res) => {
     res.redirect(301,'/login')
   })
   
+
+
+  //for DB
+ 
+
+  //connect to database
+
+
+
+
   
   
   app.listen(port, () => {

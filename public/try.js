@@ -73,15 +73,23 @@ close1.addEventListener("click", (eo) => {
 //add image
 const add = document.getElementById("add");
 const cont = document.querySelector(".gg-box");
+const pickPic = document.getElementById("pickPic");
+let url;
 
 
-
-  add.addEventListener("click",(eo) => {
-    let iii = document.querySelectorAll(".js").length;
-    let newE = `<img loading="lazy" src="wallpaperflare.com_wallpaper (12).jpg" class="js" id="${iii}">`;
-    cont.innerHTML += newE;
-  
+  pickPic.addEventListener("change",function adding(eo) {
+   url = URL.createObjectURL(eo.target.files[0]);
   })
+
+ add.addEventListener("click",(eo) => {
+  let iii = document.querySelectorAll(".js").length;
+  let newE = `<img loading="lazy" src="${url}" class="js" id="${iii}">`;
+  cont.innerHTML += newE;
+ })
+ 
+
+
+
 
 // reguler expration
 
