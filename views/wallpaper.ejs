@@ -30,6 +30,41 @@
 
 
 
+     <!-- add to document <head> -->
+      <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+      <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+          rel="stylesheet">
+      <style>
+          .filepond--item{
+              width: 140px;
+              height: 200px;
+          }
+      </style>
+  
+      <!-- add before </body> -->
+      <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+      <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+      <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+      <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+      <!-- VANILLA JAVASCRIPT -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            FilePond.registerPlugin(
+                FilePondPluginImagePreview,
+                FilePondPluginFileEncode
+            );
+            // https://pqina.nl/filepond/docs/patterns/api/filepond-object/#setting-options
+            FilePond.setOptions({
+                stylePanelAspectRatio: 150 / 100,
+                imageResizeTargetWidth: 100,
+                imageResizeTargetHeight: 150,
+            })
+            FilePond.parse(document.body);
+        });
+
+    </script>
+
 </head>
 <body >
 
@@ -84,6 +119,7 @@
                   <div class="wave wave4"></div>
                 </section>      
     </header>
+
   <dialog class="active" id="box">
     
       <div id="back">
@@ -188,10 +224,26 @@
     
     <br><br><br><br><br>
  
-      <input type="file" alt="choise picture" id="pickPic">
       <button class="btn btn-success" id="add"> add picture</button>
     
-    
+    <dialog  class="active2"  id="box2">
+      <div class="ui">
+        <form action="/add" class="ui form fix" method="post">
+            <div class="ui two fields f2">
+                <div class="field">
+                    <label for="name">Title</label>
+                    <input type="text" name="name">
+                </div>
+            </div>
+            <!-- HERE WE NEED TO USE FILEPOND -->
+            <div class="ui field f1">
+                <label for="img">Image</label>
+                <input type="file" name="img" id="img" class="filepond filepond--item">
+            </div>
+            <button class="ui fluid blue button f3 b3" type="submit">Save</button>
+        </form>
+    </div>
+    </dialog>
 
   
     <div class="gg-container">

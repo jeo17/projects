@@ -72,7 +72,7 @@ close1.addEventListener("click", (eo) => {
 
 //add image
 const add = document.getElementById("add");
-const cont = document.querySelector(".gg-box");
+/*const cont = document.querySelector(".gg-box");
 const pickPic = document.getElementById("pickPic");
 let url;
 
@@ -85,7 +85,7 @@ let url;
   let iii = document.querySelectorAll(".js").length;
   let newE = `<img loading="lazy" src="${url}" class="js" id="${iii}">`;
   cont.innerHTML += newE;
- })
+ })*/
  
 
 
@@ -137,3 +137,11 @@ const regEmail  =
     }
   });
 
+
+  //add image popap:
+
+   const box2= document.getElementById("box2")
+
+   add.addEventListener("click",(eo) => {
+    box2.showModal();
+   })
