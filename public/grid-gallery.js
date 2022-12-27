@@ -19,7 +19,7 @@ const conta = document.querySelector(".gg-box");
       if (parentItem.hasAttribute('data-theme')) screenItem.setAttribute("data-theme", "dark");
       var route = eo.target;
       root.style.overflow = 'hidden';
-      screenItem.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div>';
+      screenItem.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div><div class="gg-trash gg-btn-trash"></div> ';
       const images = document.querySelectorAll(".gg-box > img");
       const l = images.length;
       const first = images[0].id, last = images[l-1].id;

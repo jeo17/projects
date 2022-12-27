@@ -145,3 +145,5 @@ const regEmail  =
    add.addEventListener("click",(eo) => {
     box2.showModal();
    })
+
+   

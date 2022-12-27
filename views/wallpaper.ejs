@@ -154,35 +154,36 @@
              </div>
               <br>
               <p style="color: #6c757d;transform: translate(0,10px);"> or creat new account here:</p>
-              <form method="post" onsubmit="return false;">
+              <form method="post" action="/sign-up" >
                 <div class="form-group">
-                  <input class="input" type="text" placeholder="Username" required />
-                  <input id="email" class="input" type="text" placeholder="Email address" required />
-                  <input id="pass1" class="input" type="text" placeholder="Password" required />
+                  <input class="input" type="text" placeholder="Username" required name="username" />
+                  <input id="email" class="input" type="text" placeholder="Email address" required name="email" />
+                  <input id="pass1" class="input" type="password" placeholder="Password" required  name="password"/>
                   
                  <div class="dis">
                   <div >
-                    <input class="input" type="text"  maxlength="2" size="2" placeholder="DD" required />
+                    <input class="input" type="text"  maxlength="2" size="2" placeholder="DD" required name="day" />
                   </div>
       
                   <div >
-                    <input class="input" type="text"  maxlength="2" size="2" placeholder="MM" required />
+                    <input class="input" type="text"  maxlength="2" size="2" placeholder="MM" required name="month" />
                   </div>
       
-                  <div >
-                    <input class="input" type="text"  maxlength="4" size="4" placeholder="YYYY" required />
+                  <div > 
+                    <input class="input" type="text"  maxlength="4" size="4" placeholder="YYYY" required name="year" />
                   </div>
                  </div>
                   
       
                 </div>
-                <div class="form-group"></div>
-                <div class="form-group"></div>
-                <div class="form-group"></div>
+
+
+                <button class="button" style="position:relative; top: 25px;">Sign up</button>
+
               </form>
               <div class="dis1">
-                <button class="button">Sign up</button>
-                <button id="goLeft" class="off button" style="font-size: 11px; ">Have an account?<br>Log in</button>
+               
+                <button id="goLeft" class="off button" style="font-size: 11px; position:relative; bottom: 53px; left: 42px; ">Have an account?<br>Log in</button>
                 
               </div>
              
@@ -225,10 +226,9 @@
     <br><br><br><br><br>
  
       <button class="btn btn-success" id="add"> add picture</button>
-    
     <dialog  class="active2"  id="box2">
       <div class="ui">
-        <form action="/add" class="ui form fix" method="post">
+        <form action="/add" method="POST"  class="ui form fix">
             <div class="ui two fields f2">
                 <div class="field">
                     <label for="name">Title</label>
@@ -236,6 +236,8 @@
                 </div>
             </div>
             <!-- HERE WE NEED TO USE FILEPOND -->
+
+          
             <div class="ui field f1">
                 <label for="img">Image</label>
                 <input type="file" name="img" id="img" class="filepond filepond--item">
@@ -251,40 +253,30 @@
     <div class="gg-box">
       <img loading="lazy" src="bence-balla-schottner-deGn9vSwXIM-unsplash.jpg" class="js" id="0">
       <img loading="lazy" src="carl-raw-o59Gt5O4QZ4-unsplash.jpg" class="js" id="1">
-      <img loading="lazy" src="fachry-zella-devandra-Yta-zdP9PVM-unsplash.jpg" class="js" id="2">
-      <img loading="lazy" src="flavio-gasperini-GjKPTkhni6Y-unsplash.jpg" class="js" id="3">
-     <img loading="lazy" src="james-harrison-vpOeXr5wmR4-unsplash.jpg "class="js" id="4">
+
+     <% if(wall) { %>
+      <% let i =2; %>
+      
+          <% wall.forEach(m => { %>
+          <img loading="lazy" src="<%= m.coverImagePath %>" alt="sorry" class="js" id="<%=i%>" data-link="<%= m._id %>">
+          <%
+        i++;
+       }) %>
+       <% } %>
+      </div>
+
+
+
+
+
+
          <!-- <img loading="lazy" src="/Users/msi/wallpapers/kobu-agency-67L18R4tW_w-unsplash.jpg">
         <img loading="lazy" src="/Users/msi/wallpapers/manuel-nobauer-Vv0Qlq9jZVQ-unsplash.jpg">
-        <img loading="lazy" src="/Users/msi/wallpapers/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg">
-        <img loading="lazy" src="/Users/msi/wallpapers/walling-JV_R_DNzIWU-unsplash.jpg">
-        <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (1).jpg">
-      
-        <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (10).jpg">
-        <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (11).jpg">
-        <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (12).jpg">
-        <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (14).jpg">
-       <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (15).jpg">
-        <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (16).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (17).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (2).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (3).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (4).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (5).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (6).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (7).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (8).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper (9).jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/Nouveau dossier/wallpaperflare.com_wallpaper.jpg">
-          <img loading="lazy" src="/Users/msi/wallpapers/bence-balla-schottner-deGn9vSwXIM-unsplash.jpg">
-            <img loading="lazy" src="/Users/msi/wallpapers/carl-raw-o59Gt5O4QZ4-unsplash.jpg">
-            <img loading="lazy" src="/Users/msi/wallpapers/fachry-zella-devandra-Yta-zdP9PVM-unsplash.jpg">
-            <img loading="lazy" src="/Users/msi/wallpapers/flavio-gasperini-GjKPTkhni6Y-unsplash.jpg">
             <img loading="lazy" src="/Users/msi/wallpapers/james-harrison-vpOeXr5wmR4-unsplash.jpg">
             <img loading="lazy" src="/Users/msi/wallpapers/kobu-agency-67L18R4tW_w-unsplash.jpg">
             <img loading="lazy" src="/Users/msi/wallpapers/manuel-nobauer-Vv0Qlq9jZVQ-unsplash.jpg">   -->
     </div>
-  </div>
+  
   
 </body>
 </html>
