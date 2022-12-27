@@ -38,7 +38,7 @@ $(document).ready(function () {
 
 const wave = document.getElementById("wave");
 const close = document.getElementById("close");
-const login = document.getElementById("log");
+const log = document.getElementById("log");
 const box = document.querySelector("dialog");
 const signup = document.getElementById("sign up");
 const slideBox = document.getElementById("slideBox");
@@ -47,7 +47,7 @@ const topLayer = document.getElementById("topLayer");
 
 
 // sign & login
-login.addEventListener("click", (eo) => {
+log.addEventListener("click", (eo) => {
   box.showModal();
   slideBox.style.marginLeft = "50%";
   topLayer.style.marginLeft = "0px";
@@ -145,5 +145,24 @@ const regEmail  =
    add.addEventListener("click",(eo) => {
     box2.showModal();
    })
+
+
+
+
+const login = document.getElementById("login");
+
+login.addEventListener("click",(eo) => {
+  let username = document.getElementById("username").value;
+  let password = pass2.value;
+
+ if(username !="" && password!=""){
+  console.log(username);
+  console.log(password);
+ }
+ 
+ 
+
+  
+})
 
    
