@@ -3,11 +3,10 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
-const expressLayouts = require('express-ejs-layouts');
 const Wallpaper = require('./models/wallpaper');
 const SignUp = require("./models/sign");
-
 const imageMimeTypes = ["image/jpeg", "image/png", "images/gif"];
+
 
 // DATABASE CONNECTION
 mongoose.connect("mongodb+srv://jeo:dh.jl2002@cluster0.kwlkqhx.mongodb.net/?retryWrites=true&w=majority")
@@ -23,7 +22,6 @@ db.on("open", ()=>{
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-//app.use(expressLayouts);
 app.use(bodyParser.json({limit: '5mb'}));
 app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
 app.use(express.urlencoded({ extended: true }));
@@ -36,17 +34,22 @@ app.use(express.urlencoded({ extended: true }));
   app.get("/", async (req, res, next) => {
     try{
       const wall  = await Wallpaper.find();
+      const accounts = await SignUp.find();
       res.render("wallpaper", {
-        wall
+        wall,
+        accounts
       });
-    }catch (err){
-      console.log("err: "+ err); 
     }
+    catch (err){
+      console.log("err: "+ err); 
+    }          
+    
+    
   });
 
   
   app.get('/login', (req, res) => {
-    res.send('put your username and password !')
+    res.send('username and password !')
   })
   
  
@@ -85,15 +88,26 @@ app.use(express.urlencoded({ extended: true }));
         console.log(err);
       });
   }); 
+
+
+
+
+  /*app.delete("/", (req, res)=> {
+    wall.findByIdAndDelete(req.params.id)
+  .then((params)=> {
+      res.json( {mylink: "/"} );
+    })
+   .catch((err)=> {
+      console.log(err);
+    });
+  });*/
   
 
 
 
 
 
-
-
-  function saveImage(wallpaper, imgEncoded) {
+   function saveImage(wallpaper, imgEncoded) {
     // CHECKING FOR IMAGE IS ALREADY ENCODED OR NOT
     if (imgEncoded == null) return;
   
@@ -117,9 +131,9 @@ app.use(express.urlencoded({ extended: true }));
 
 
   
- app.use( (req, res) => {
+ /*app.use( (req, res) => {
     res.redirect(301,'/login')
-  })
+  })*/
 
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

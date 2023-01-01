@@ -44,8 +44,6 @@ const signup = document.getElementById("sign up");
 const slideBox = document.getElementById("slideBox");
 const topLayer = document.getElementById("topLayer");
 
-
-
 // sign & login
 log.addEventListener("click", (eo) => {
   box.showModal();
@@ -67,26 +65,6 @@ close1.addEventListener("click", (eo) => {
   box.close();
 });
 
-
-
-
-//add image
-const add = document.getElementById("add");
-/*const cont = document.querySelector(".gg-box");
-const pickPic = document.getElementById("pickPic");
-let url;
-
-
-  pickPic.addEventListener("change",function adding(eo) {
-   url = URL.createObjectURL(eo.target.files[0]);
-  })
-
- add.addEventListener("click",(eo) => {
-  let iii = document.querySelectorAll(".js").length;
-  let newE = `<img loading="lazy" src="${url}" class="js" id="${iii}">`;
-  cont.innerHTML += newE;
- })*/
- 
 
 
 
@@ -140,29 +118,9 @@ const regEmail  =
 
   //add image popap:
 
+   const add = document.getElementById("add");
    const box2= document.getElementById("box2")
 
    add.addEventListener("click",(eo) => {
     box2.showModal();
-   })
-
-
-
-
-const login = document.getElementById("login");
-
-login.addEventListener("click",(eo) => {
-  let username = document.getElementById("username").value;
-  let password = pass2.value;
-
- if(username !="" && password!=""){
-  console.log(username);
-  console.log(password);
- }
- 
- 
-
-  
-})
-
-   
+   });

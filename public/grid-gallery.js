@@ -1,17 +1,16 @@
 const root = document.querySelector("body, html");
 const container = document.querySelector('.gg-container');
 const conta = document.querySelector(".gg-box");
+const x = document.querySelectorAll(".js");
 
    
-      
-    
    
       
 
      conta.addEventListener("click",function(eo) {
      if (eo.target.className =="js") {
-
      
+      
       var currentImg = this;
       const parentItem = currentImg.parentElement, screenItem = document.createElement('div');
       screenItem.id = "gg-screen";
@@ -19,13 +18,23 @@ const conta = document.querySelector(".gg-box");
       if (parentItem.hasAttribute('data-theme')) screenItem.setAttribute("data-theme", "dark");
       var route = eo.target;
       root.style.overflow = 'hidden';
-      screenItem.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div><div class="gg-trash gg-btn-trash"></div> ';
+      let imgData = eo.target.getAttribute("data-link");
+      screenItem.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div><div class="gg-trash gg-btn-trash" data-L=" ' + imgData + ' "></div> ';
+      
+     /* trash.addEventListener("click",(eo) => {
+        fetch("/", { method: "DELETE" } )
+       .then((response)=> response.json())
+       .then((data)=> console.log(data))
+       .catch((err)=> {
+          console.log(err);
+                       } );
+      })*/
+
       const images = document.querySelectorAll(".gg-box > img");
       const l = images.length;
       const first = images[0].id, last = images[l-1].id;
-      const imgItem = document.querySelector(".gg-image"), prevBtn = document.querySelector(".gg-prev"), nextBtn = document.querySelector(".gg-next"), close = document.querySelector(".gg-close");
+      const imgItem = document.querySelector(".gg-image"), prevBtn = document.querySelector(".gg-prev"), nextBtn = document.querySelector(".gg-next"), close = document.querySelector(".gg-close"), trash = document.querySelector(".gg-trash");
       imgItem.innerHTML = '<img src="' + route.src + '"id="' + eo.target.id + '"> ';
-     
      
       
         
@@ -64,7 +73,10 @@ const conta = document.querySelector(".gg-box");
         let j = document.querySelector(".gg-image > img").id;
        
           prevImg = document.getElementById(j-1);
-         imgItem.innerHTML = '<img src="' + prevImg.src + '" id="' + prevImg.id + '">';
+          let  prevtrash= prevImg.getAttribute("data-link")
+          trash.setAttribute("data-l",prevtrash);
+        
+          imgItem.innerHTML = '<img src="' + prevImg.src + '" id="' + prevImg.id + '">';
          currentImg = document.getElementById(j-1);
          var mainImg = document.querySelector(".gg-image > img").id;
          nextBtn.hidden = false;
@@ -77,6 +89,9 @@ const conta = document.querySelector(".gg-box");
         let j = document.querySelector(".gg-image > img").id;
         
         nextImg = document.getElementById(Number(j)+1);
+        let  nexttrash= nextImg.getAttribute("data-link")
+        trash.setAttribute("data-l",nexttrash);
+
         imgItem.innerHTML = '<img src="' + nextImg.src + '" id="' + nextImg.id + '">';
         currentImg = document.getElementById(Number(j)+1);
         var mainImg = document.querySelector(".gg-image > img").id;
