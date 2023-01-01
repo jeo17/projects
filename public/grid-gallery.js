@@ -18,7 +18,7 @@ const x = document.querySelectorAll(".js");
       if (parentItem.hasAttribute('data-theme')) screenItem.setAttribute("data-theme", "dark");
       var route = eo.target;
       root.style.overflow = 'hidden';
-      let imgData = eo.target.getAttribute("data-link");
+      let imgData = route.getAttribute("data-link");
       screenItem.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div><div class="gg-trash gg-btn-trash" data-L=" ' + imgData + ' "></div> ';
       
      /* trash.addEventListener("click",(eo) => {
