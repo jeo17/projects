@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const Wallpaper = require('./models/wallpaper');
 const SignUp = require("./models/sign");
 const imageMimeTypes = ["image/jpeg", "image/png", "images/gif"];
-const helmet = require("helmet");
+
  
  
 
@@ -31,8 +31,6 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-
-  app.use(helmet());
 
   app.get("/", async (req, res, next) => {
     try{
